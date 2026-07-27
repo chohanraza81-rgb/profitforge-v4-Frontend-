@@ -9,7 +9,6 @@ export function useAuth() {
     const t = localStorage.getItem('token');
     if (t) {
       setToken(t);
-      // Fetch user profile (optional)
       apiClient.get('/auth/me').then(res => setUser(res.data)).catch(() => {});
     }
   }, []);
@@ -21,5 +20,11 @@ export function useAuth() {
     setUser(res.data.user);
   };
 
-  return { user, token, login };
+  const logout = () => {
+    localStorage.removeItem('token');
+    setToken(null);
+    setUser(null);
+  };
+
+  return { user, token, login, logout };
 }
