@@ -9,7 +9,7 @@ export function useAuth() {
     const t = localStorage.getItem('token');
     if (t) {
       setToken(t);
-      // Optionally fetch user profile
+      // Fetch user profile (optional)
       apiClient.get('/auth/me').then(res => setUser(res.data)).catch(() => {});
     }
   }, []);
