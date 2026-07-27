@@ -1,5 +1,5 @@
 export default function ConfidenceBadge({ confidence }) {
-  const { level, active, total } = confidence || { level: 'UNKNOWN', active: 0, total: 0 };
+  const { level, active, total } = confidence || { level: 'UNKNOWN', active: 0, total: 3 };
   const colorMap = { HIGH: '🟢', MEDIUM: '🟡', LOW: '🔴' };
   return (
     <div className="glass p-4 flex items-center gap-4 flex-wrap">
